@@ -5,7 +5,7 @@ const db = require('./db/mongodb')
 const routes = require('./routes/routes')
 const passport = require('passport');
 require('./db/passport')
-
+const session = require('express-session');
 
 
 const GoogleStrategy = require('passport-google-oauth2').Strategy;
@@ -21,7 +21,9 @@ passport.use(new GoogleStrategy({
 ));
 
 app.get('/protected', (req, res) => {
-
+    if (!req.session) {
+        res.redirect('/');
+    }
     res.send('authenticate user <a href="users/logout">Logout</a>')
 
 })
