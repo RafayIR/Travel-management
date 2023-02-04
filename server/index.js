@@ -3,17 +3,14 @@ const express = require('express')
 const app = express()
 const db = require('./db/mongodb')
 const routes = require('./routes/routes')
+const cors = require('cors');
 
 require('./db/passport')
 
-
+app.use(cors())
 
 app.get('/protected', (req, res) => {
     res.send('authenticate user <a href="users/logout">Logout</a>')
-    // if (!req.session) {
-    //     res.redirect('/');
-    // }
-    // res.send('authenticate user <a href="users/logout">Logout</a>')
 
 })
 

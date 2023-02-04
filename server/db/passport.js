@@ -7,6 +7,7 @@ passport.use(new GoogleStrategy({
     passReqToCallback: true
 },
     function (request, accessToken, refreshToken, profile, done) {
+        // console.log(accessToken , profile);
         return done(null, profile);
     }
 ));
@@ -15,6 +16,7 @@ passport.use(new GoogleStrategy({
 
 
 passport.serializeUser(function (user, done) {
+    console.log(user)
     done(null, user);
 });
 
