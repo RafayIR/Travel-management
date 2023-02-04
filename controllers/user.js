@@ -10,12 +10,10 @@ userRoutes.use(passport.session());
 
 
 userRoutes.get('/', (req, res) => {
-    console.log('hello', session)
-
-    res.send('<a href="/auth/google">Authenticate With google </a>')
-
-
+    res.send('<a href="/users/auth/google">Authenticate With google </a>')
 })
+
+
 
 userRoutes.get('/auth/google/callback',
 
@@ -25,6 +23,17 @@ userRoutes.get('/auth/google/callback',
         failureRedirect: '/auth/google/failure'
     })
 );
+
+
+
+userRoutes.get('/auth/google',
+    passport.authenticate('google', {
+        scope: ['email', 'profile']
+    }
+    ))
+
+
+
 
 userRoutes.get('/logout', (req, res) => {
 

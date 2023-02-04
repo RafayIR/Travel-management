@@ -8,11 +8,6 @@ userRoutes.use((req, res, next) => {
 })
 
 
-routes.get('/auth/google',
-    passport.authenticate('google', {
-        scope: ['email', 'profile']
-    }
-    ))
 
 routes.get('/', (req, res) => {
     res.send('HELLO FROM ROUTES <a href="/users" >Log IN</a>')
