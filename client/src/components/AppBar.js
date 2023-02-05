@@ -10,13 +10,14 @@ import { useNavigate, useLocation } from 'react-router-dom';
 
 
 
+
 function Navbar() {
     const location = useLocation();
     const query = new URLSearchParams(location.search);
     const navigate = useNavigate()
 
     function handleLogout() {
-        navigate('/')
+        window.location.href = 'http://localhost:8080/users/logout'
     }
 
     return (
@@ -47,11 +48,10 @@ function Navbar() {
                                 size="large"
                                 color="inherit"
                             >
-                                {/* <MenuIcon /> */}
+
                             </IconButton>
 
                         </Box>
-                        {/* <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} /> */}
                         <Typography
                             variant="h5"
                             noWrap

@@ -18,3 +18,18 @@ const data = [
 ]
 
 module.exports = Travel
+
+// Travel.find({ name : data.name}, (err, result) => {
+//     if(err) {
+//         console.log(err)
+//     }else if( result.length === 0) {
+//         Travel.create(data , (error) => {
+//             if(error) {
+//                 console.log(error)
+//             }else {
+//                 console.log('Data save successfully')
+//             }
+//         });
+//         console.log('Data Already Exist')
+//     }
+// })

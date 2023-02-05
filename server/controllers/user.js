@@ -6,7 +6,7 @@ const passport = require('passport');
 const Travel = require('../model/TravelMangementModel')
 
 
-userRoutes.use(session({ secret: 'cats', resave: true, saveUninitialized: false }));
+userRoutes.use(session({ secret: 'Travel', resave: true, saveUninitialized: false }));
 userRoutes.use(passport.initialize());
 userRoutes.use(passport.session());
 
@@ -39,15 +39,26 @@ userRoutes.get('/auth/google/callback',
 userRoutes.get('/dashboard', async (req, res) => {
     // console.log(req)
     if (req.isAuthenticated()) {
-        console.log(req.user);
         const travel = await Travel.find({});
         res.send(travel)
     } else {
         console.log("not auth")
-        res.send(req.user)
+        res.status(401).json();
     }
 })
 
+
+
+
+userRoutes.get('/logout', (req, res) => {
+    req.logout(() => {
+        req.session.destroy(() => {
+            res.clearCookie('connect.sid')
+            res.redirect('http://localhost:3000/');
+        });
+
+    });
+});
 
 
 

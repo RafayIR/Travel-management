@@ -7,7 +7,10 @@ const cors = require('cors');
 
 require('./db/passport')
 
-app.use(cors())
+app.use(cors({
+    origin: true,
+    credentials: true
+}))
 
 app.use('/', routes)
 
