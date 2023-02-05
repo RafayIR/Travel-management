@@ -5,30 +5,15 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import GoogleButton from 'react-google-button';
-import axios from 'axios';
+
 
 function LogIn() {
-
-
-    async function handleLogin() {
-        
-
-        try {
-            const user = await axios.get('http://localhost:8080/users/auth/google')
-              console.log(user)
-        }
-        catch (err) {
-            console.log(err)
-        }
-       
-       
-
+    function handleLogin() {
+        window.location('http://localhost:3000/dashboard')
     }
-
-
     return (
         <div>
-            <Container component="main" maxWidth="xs">
+            <Container className='google-wrapper' component="main" maxWidth="xs">
                 <CssBaseline />
                 <Box
                     sx={{
@@ -44,11 +29,11 @@ function LogIn() {
                         Sign in
                     </Typography>
                     <Box sx={{ mt: 1 }}>
-                    <a href='http://localhost:8080/users/auth/google'> 
-                        <GoogleButton
-                            onClick={handleLogin}
-                        />
-                    </a>
+                        <a href='http://localhost:8080/users/auth/google'>
+                            <GoogleButton
+                                onClick={handleLogin}
+                            />
+                        </a>
                     </Box>
                 </Box>
             </Container>

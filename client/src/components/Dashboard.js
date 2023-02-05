@@ -1,18 +1,14 @@
-import React, { useEffect } from 'react'
-import axios from 'axios'
+import React from 'react'
+import Navbar from './AppBar';
+import Datagrid from './Datagrid';
+
 
 function Dashboard() {
-
-    useEffect(() => {
-        try{ axios.get('http://localhost:8080/users/dashboard')
-        }catch(err) {
-            console.log(err)
-        }
-    })
-
-
   return (
-    <div>Dashboard</div>
+    <div>
+      <Navbar />
+      <Datagrid />
+    </div>
   )
 }
 

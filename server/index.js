@@ -9,11 +9,6 @@ require('./db/passport')
 
 app.use(cors())
 
-app.get('/protected', (req, res) => {
-    res.send('authenticate user <a href="users/logout">Logout</a>')
-
-})
-
 app.use('/', routes)
 
 

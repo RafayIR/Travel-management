@@ -1,7 +1,7 @@
 import Dashboard from "./components/Dashboard";
 import LogIn from "./components/Login"
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-
+import './assets/app.css'
 
 function App() {
   return (
