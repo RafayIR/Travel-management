@@ -18,6 +18,7 @@ function Navbar() {
 
     function handleLogout() {
         window.location.href = 'http://localhost:8080/users/logout'
+        navigate('/', { replace: true });
     }
 
     return (

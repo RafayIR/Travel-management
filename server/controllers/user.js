@@ -43,11 +43,9 @@ userRoutes.get('/dashboard', async (req, res) => {
         res.send(travel)
     } else {
         console.log("not auth")
-        res.status(401).json();
+        res.status(401);
     }
 })
-
-
 
 
 userRoutes.get('/logout', (req, res) => {
